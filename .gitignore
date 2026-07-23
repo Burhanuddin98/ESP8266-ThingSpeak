@@ -1,2 +1,4 @@
 # Local secrets - never commit real credentials / API keys
 Inclinometer/config.h
+simulated_data/inclinometer_sim.sqlite
+*.sqlite

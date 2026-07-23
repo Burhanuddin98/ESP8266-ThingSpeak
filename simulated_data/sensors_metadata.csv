@@ -1,0 +1,10 @@
+sensor,wall,position_m,distance_to_drill_m,drill_coupling,retained_soil_m,tree_shielded,thingspeak_channel
+W1,Western,12.42,18.58,0.55,0.61,0,ZWEI_W1
+W2,Western,19.92,11.08,0.65,0.61,0,ZWEI_W2
+W3,Western,27.42,3.58,1.0,0.61,0,ZWEI_W3
+W4,Western,34.92,3.92,0.95,0.61,0,ZWEI_W4
+W5,Western,42.42,11.42,0.3,0.61,1,ZWEI_W5
+N1,Northern,7.08,13.92,0.5,0.91,0,ZWEI_N1
+N2,Northern,14.08,6.92,0.6,0.91,0,ZWEI_N2
+N3,Northern,21.08,0.08,1.0,0.91,0,ZWEI_N3
+N4,Northern,28.08,7.08,0.35,0.91,1,ZWEI_N4
