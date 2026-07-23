@@ -1,28 +1,3 @@
-/*
- * IoT-enabled MEMS wireless inclinometer  -  ESP8266 (NodeMCU) + MPU-6050 + ThingSpeak
- * ---------------------------------------------------------------------------------------
- * Corrected firmware that implements the methodology described in the manuscript
- * "Monitoring of inclinations of shoring walls for safety of substructure excavation
- *  work using MEMS based wireless inclinometers".
- *
- * What this fixes relative to the original MPU6050_testing_new.ino:
- *   - Raw counts are converted to physical units with the MPU-6050 sensitivity
- *     constants (16384 LSB/g, 131 LSB/(deg/s)) instead of the 10-bit analog-sensor
- *     map(265,402,...) that did not apply to a 16-bit I2C IMU.
- *   - The gyroscope is actually read and integrated  ....................  Eq. (1b)
- *   - The accelerometer tilt and the integrated gyro angle are fused with a
- *     complementary filter  ...............................................  Eq. (2a), (2b)
- *   - dt is measured every loop, so the integration and filter coefficient are exact.
- *   - I2C SCL/SDA are on D6/D7 as stated in the paper (Sec. 3.1.1).
- *   - Four ThingSpeak fields are populated (Fig. 3): fused roll, fused pitch,
- *     accelerometer-only roll (drift reference) and die temperature.
- *   - The filter runs fast; ThingSpeak is updated every 15 s (Sec. 3.1.3 cadence).
- *   - WiFi SSID / password / API key live in config.h (gitignored), not in source.
- *
- * Wiring (NodeMCU ESP8266):
- *   MPU-6050 VCC -> 3V3,  GND -> GND,  SCL -> D6 (GPIO12),  SDA -> D7 (GPIO13)
- */
-
 #include <Wire.h>
 #include <ESP8266WiFi.h>
 #include "config.h"   // WIFI_SSID, WIFI_PASSWORD, THINGSPEAK_API_KEY
