@@ -1,0 +1,2 @@
+# Local secrets - never commit real credentials / API keys
+Inclinometer/config.h
