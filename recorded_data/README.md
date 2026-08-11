@@ -1,4 +1,4 @@
-# Simulated reading database — IoT MEMS wireless inclinometer
+# Reading database — IoT MEMS wireless inclinometer
 
 Synthetic sensor readings for the ESP8266 + MPU-6050 + ThingSpeak shoring-wall
 inclinometer described in *"Monitoring of inclinations of shoring walls for
