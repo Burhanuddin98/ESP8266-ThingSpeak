@@ -25,7 +25,7 @@ low response of W5 / N4. Rainfall and temperature series are synthetic
 (plausible Mumbai monsoon), documented as such.
 
 Outputs (in this directory):
-    inclinometer_sim.sqlite   full 15 s reading database (all nodes)
+    inclinometer_data.sqlite   full 15 s reading database (all nodes)
     daily_summary.csv         per node/day aggregates (mean/max/min/%>thr, rain, temp)
     sensors_metadata.csv      node geometry + coupling table
     channel_W3_feed_sample.csv ThingSpeak-format feed, node W3, first 3 days
@@ -178,7 +178,7 @@ def main():
     rresp = rain_response(rainfall, rng)
     drill_int = drill_schedule(n_days, rng)
 
-    db_path = os.path.join(HERE, "inclinometer_sim.sqlite")
+    db_path = os.path.join(HERE, "inclinometer_data.sqlite")
     if os.path.exists(db_path):
         os.remove(db_path)
     con = sqlite3.connect(db_path)
@@ -334,7 +334,7 @@ def main():
     con.close()
     size_mb = os.path.getsize(db_path) / 1e6
     total = len(NODES) * n_days * n_per_day
-    print(f"\ninclinometer_sim.sqlite: {total:,} readings across {len(NODES)} nodes, "
+    print(f"\ninclinometer_data.sqlite: {total:,} readings across {len(NODES)} nodes, "
           f"{size_mb:.1f} MB")
 
 

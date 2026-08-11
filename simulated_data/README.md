@@ -41,7 +41,7 @@ complementary filter is visible in the data.
 
 | File                         | Size  | Contents |
 |------------------------------|-------|----------|
-| `inclinometer_sim.sqlite`    | 345 MB| full 15 s reading database (all nodes) — **git-ignored** |
+| `inclinometer_data.sqlite`   | 345 MB| full 15 s reading database (all nodes) — **[download from the `dataset-v1` release](https://github.com/Burhanuddin98/ESP8266-ThingSpeak/releases/tag/dataset-v1)** (too large for a repo blob) |
 | `daily_summary.csv`          | 40 KB | per node/day: rainfall, temp, mean/max/min inclination, %>threshold |
 | `sensors_metadata.csv`       | <1 KB | node geometry + drill-coupling table |
 | `channel_W3_feed_sample.csv` | 0.9 MB| ThingSpeak-format feed for node W3, first 3 days |
@@ -49,7 +49,20 @@ complementary filter is visible in the data.
 | `reconciliation.txt`         | 1 KB  | achieved period means / peaks vs paper Tables 1–2 |
 | `generate_dataset.py`        | —     | the generator (re-run at any interval/seed) |
 
-## Database schema (`inclinometer_sim.sqlite`)
+## Getting the database
+
+The 345 MB SQLite file exceeds GitHub's 100 MB per-file limit for repository
+blobs, so it ships as a release asset:
+
+```bash
+gh release download dataset-v1 --repo Burhanuddin98/ESP8266-ThingSpeak
+```
+
+or download `inclinometer_data.sqlite` directly from the
+[`dataset-v1` release](https://github.com/Burhanuddin98/ESP8266-ThingSpeak/releases/tag/dataset-v1).
+Alternatively, regenerate it locally — see [Regenerate](#regenerate) below.
+
+## Database schema (`inclinometer_data.sqlite`)
 
 ```
 sensors(sensor_id, name, wall, position_m, distance_to_drill_m,
